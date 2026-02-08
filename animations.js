@@ -27,13 +27,29 @@ function startEmojiRain() {
 
 // Bubu & Dudu Animation Logic
 window.onload = () => {
-    // Start the background rain immediately
-    startEmojiRain();
+    /// ... (keep your startEmojiRain and other code)
+
+// Add these functions to animations.js
+function showBigRose() {
+    document.getElementById('big-rose-overlay').classList.remove('hidden');
+}
+
+function closeRose() {
+    document.getElementById('big-rose-overlay').classList.add('hidden');
+}
+
+// Update the section inside window.onload where the dialogue appears:
+setTimeout(() => {
+    dudu.innerHTML = "( >_<) <br> _/ \\_ 🌹";
+    bubu.innerHTML = "(｡♥‿♥｡)";
     
-    const dudu = document.getElementById('dudu');
-    const bubu = document.getElementById('bubu');
-    const bgm = document.getElementById('bgm');
-    const dialogueBox = document.getElementById('dialogue-box');
+    // Show Gift and Dialogue
+    document.getElementById('gift-section').classList.remove('hidden');
+    document.getElementById('dialogue-box').classList.remove('hidden');
+    document.getElementById('dialogue-box').style.opacity = "1";
+    
+    typeWriter("Jyoti, you are my world's favorite logic error. Will you be my Motu forever?");
+}, 3500);
 
     // 1. Play music (Triggered by the click on the previous page)
     if (bgm) {

@@ -46,3 +46,25 @@ function showEmotionalLetter() {
     }
     type();
 }
+function showEmotionalLetter() {
+    const text = "Dearest Jyoti (Motu), ❤️ \n\n" +
+        "You are the red rose in my garden of life. " +
+        "Today, I didn't just write code; I wrote my heart out for you. \n\n" +
+        "Thank you for being my constant, my joy, and my 'Motu'. " +
+        "I promise to keep this website live forever, just like my love for you.";
+
+    const target = document.getElementById('letter-body');
+    let i = 0;
+    target.innerHTML = "";
+    target.style.color = "#C21E56"; // Rose Red Text
+    target.style.fontWeight = "bold";
+
+    function type() {
+        if (i < text.length) {
+            target.innerHTML += text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+            i++;
+            setTimeout(type, 50);
+        }
+    }
+    type();
+}

@@ -32,3 +32,46 @@ function startTypewriter() {
     }
     type();
 }
+// Function to create falling stars and roses
+function createFallingElement() {
+    const emojis = ['🌹', '⭐', '🌸', '✨', '🌷', '💖'];
+    const element = document.createElement('div');
+    element.className = 'falling';
+    element.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    
+    element.style.left = Math.random() * 100 + 'vw';
+    element.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2-5 seconds
+    element.style.opacity = Math.random();
+    
+    document.body.appendChild(element);
+
+    // Remove element after it falls
+    setTimeout(() => { element.remove(); }, 5000);
+}
+
+// Start the rain
+setInterval(createFallingElement, 200);
+
+// Bubu & Dudu Logic
+window.onload = () => {
+    if (window.location.pathname.includes("proposal.html")) {
+        const dudu = document.getElementById('dudu');
+        const bubu = document.getElementById('bubu');
+        const bgm = document.getElementById('bgm');
+
+        // Music Start
+        bgm.play().catch(() => console.log("Music ready after click"));
+
+        // Dudu Walking
+        setTimeout(() => {
+            dudu.style.transform = "translateX(80px)";
+        }, 1000);
+
+        // Dudu Proposing
+        setTimeout(() => {
+            dudu.innerHTML = "( >_<) <br> _/ \\_ 🌹";
+            bubu.innerHTML = "(｡♥‿♥｡)";
+            document.getElementById('dialogue-box').style.display = 'block';
+        }, 3000);
+    }
+};
